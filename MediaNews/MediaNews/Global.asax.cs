@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
+using System.Data.Entity;
+using MediaNews.Models;
+
 namespace MediaNews
 {
     public class MvcApplication : System.Web.HttpApplication
@@ -16,6 +19,9 @@ namespace MediaNews
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Database.SetInitializer<NewsContext>(new DropCreateDatabaseIfModelChanges<NewsContext>());
+
         }
     }
 }
