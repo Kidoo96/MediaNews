@@ -29,5 +29,8 @@ namespace MediaNews.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<MediaNews.Models.Article> Articles { get; set; }
+        public System.Data.Entity.DbSet<MediaNews.Models.CategoryModel> Categoryes { get; set; }
     }
 }

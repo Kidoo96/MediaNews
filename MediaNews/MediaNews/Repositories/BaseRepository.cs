@@ -9,13 +9,13 @@ namespace MediaNews.Repositories
 {
     public class BaseRepository<T> where T:BaseModel, new()
     {
-        protected NewsContext context;
+        protected ApplicationDbContext context;
         protected DbSet<T> dbSet;
 
 
         public BaseRepository()
         {
-            this.context = new NewsContext();
+            this.context = new ApplicationDbContext();
             this.dbSet = this.context.Set<T>();
         }
 

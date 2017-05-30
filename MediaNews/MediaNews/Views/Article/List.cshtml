@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MediaNews.Models.NewsModel>
+﻿@model IEnumerable<MediaNews.Models.Article>
 
 @{
     ViewBag.Title = "List";
@@ -18,7 +18,10 @@
             @Html.DisplayNameFor(model => model.Content)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FrontImage)
+            @Html.DisplayNameFor(model => model.imagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CategoryModelID)
@@ -35,7 +38,10 @@
             @Html.DisplayFor(modelItem => item.Content)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FrontImage)
+            @Html.DisplayFor(modelItem => item.imagePath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreated)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CategoryModelID)
