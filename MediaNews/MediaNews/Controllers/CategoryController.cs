@@ -16,7 +16,7 @@ namespace MediaNews.Controllers
             List<CategoryModel> cat = new List<CategoryModel>();
             cat = new CategoryRepository().GetAll().ToList();
 
-            return View(cat); // TODO View
+            return View(cat);
         }
 
         public ActionResult Edit(int id)

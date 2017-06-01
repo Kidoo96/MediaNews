@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MediaNews.Models
 {
@@ -14,13 +16,18 @@ namespace MediaNews.Models
         public string Title { get; set; }
 
         [Required]
-        [StringLength(255)]
+        [StringLength(60)]
+        [Display(Name = "Кратко описание")]
+        public string Description { get; set; }
+
+        [Required]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Описание")]
         public string Content { get; set; }
 
         [Required]
         [Display(Name = "Снимка")]
-        public string imagePath { get; set; }
+        public byte[] imagePath { get; set; }
 
         private DateTime dateCreated = DateTime.Now;
         [DataType(DataType.DateTime)]
@@ -32,10 +39,11 @@ namespace MediaNews.Models
             set { dateCreated = value; }
         }
 
-        //[Required]
-        //[Display(Name = "Категория")]
-        //public virtual CategoryModel Category { get; set; }
+        [Display(Name = "Категория")]
+        public int CategoryModelsID { get; set; }
 
+        [ForeignKey("CategoryModelsID")]
+        public CategoryModel Categoryes { get; set; }
 
     }
 }

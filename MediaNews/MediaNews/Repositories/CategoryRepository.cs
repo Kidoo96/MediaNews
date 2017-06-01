@@ -12,5 +12,6 @@ namespace MediaNews.Repositories
         {
 
         }
+
     }
 }

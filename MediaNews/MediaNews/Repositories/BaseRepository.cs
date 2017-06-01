@@ -9,8 +9,8 @@ namespace MediaNews.Repositories
 {
     public class BaseRepository<T> where T:BaseModel, new()
     {
-        protected ApplicationDbContext context;
-        protected DbSet<T> dbSet;
+        private ApplicationDbContext context;
+        private DbSet<T> dbSet;
 
 
         public BaseRepository()
@@ -18,6 +18,12 @@ namespace MediaNews.Repositories
             this.context = new ApplicationDbContext();
             this.dbSet = this.context.Set<T>();
         }
+
+        //public BaseRepository(UnitOfWork unitOfWork)
+        //{
+        //    this.context = new ApplicationDbContext();
+        //    this.dbSet = this.context.Set<T>();
+        //}
 
         public void Insert(T item)
         {
@@ -35,6 +41,11 @@ namespace MediaNews.Repositories
         {
             this.dbSet.Remove(this.dbSet.Find(id));
             this.context.SaveChanges();
+        }
+
+        public void GetById(int id)
+        {
+            this.dbSet.Find(id);
         }
 
         public IEnumerable<T> GetAll()

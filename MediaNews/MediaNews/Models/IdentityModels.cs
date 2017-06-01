@@ -32,5 +32,6 @@ namespace MediaNews.Models
 
         public System.Data.Entity.DbSet<MediaNews.Models.Article> Articles { get; set; }
         public System.Data.Entity.DbSet<MediaNews.Models.CategoryModel> Categoryes { get; set; }
+
     }
 }
