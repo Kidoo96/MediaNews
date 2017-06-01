@@ -87,7 +87,7 @@ namespace MediaNews.Controllers
             return RedirectToAction("List");
         }
 
-        [HttpPost]
+
         public ActionResult Details(int id)
         {
             Article arti = new ArticleRepository().GetAll().FirstOrDefault(d => d.ID == id);
