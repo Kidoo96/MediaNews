@@ -8,8 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using MediaNews.DbContext;
 using MediaNews.Entities.Models;
-using MediaNews.DTO;
 using Microsoft.AspNet.Identity;
+using MediaNews.Index.DTO;
+using MediaNews.Entities.Common;
 
 namespace MediaNews.Index.Controllers
 {
@@ -63,7 +64,6 @@ namespace MediaNews.Index.Controllers
                     entry.Title,
                     entry.Description,
                     entry.Content,
-                    entry.ExternalUrl,
                     entry.ImgUrl,
                     DateTime.Now,
                     null   

@@ -10,7 +10,7 @@ namespace MediaNews.DbContext.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = false;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(MediaNews.DbContext.ApplicationDbContext context)

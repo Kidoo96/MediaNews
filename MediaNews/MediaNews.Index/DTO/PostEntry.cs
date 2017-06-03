@@ -5,17 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaNews.DTO
+namespace MediaNews.Index.DTO
 {
     public class PostEntry
     {
 
         [Required]
         [StringLength(255)]
+        [Display(Name = "Заглавие")]
         public string Title { get; set; }
 
         [Required]
         [StringLength(255)]
+        [Display(Name = "Кратко описание")]
         public string Description { get; set; }
 
         [Required]
@@ -25,15 +27,11 @@ namespace MediaNews.DTO
 
         [Required]
         [StringLength(255)]
-        [Display(Name = "Линк към външен пост")]
-        public string ExternalUrl { get; set; }
-
-        [Required]
-        [StringLength(255)]
         [Display(Name = "Снимка")]
         public string ImgUrl { get; set; }
 
         [Required]
+        [Display(Name = "Категория")]
         public string CategoryId { get; set; }
 
     }

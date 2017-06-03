@@ -16,8 +16,8 @@ namespace MediaNews.Entities.Models
 
         }
 
-        public Posts(string categoryId, string authorId, string title, string desc, string content,
-            string externalUrl, string imgUrl, DateTime datePublish, DateTime? dateModified, CustomId id = null) 
+        public Posts(string categoryId, string authorId, string title, string desc, string content, 
+            string imgUrl, DateTime datePublish, DateTime? dateModified, CustomId id = null) 
             : this(id)
         {
             this.CategoryId = categoryId;
@@ -25,7 +25,6 @@ namespace MediaNews.Entities.Models
             this.Title = title;
             this.Description = desc;
             this.Content = content;
-            this.ExternalUrl = externalUrl;
             this.ImgUrl = imgUrl;
             this.DatePublished = datePublish;
             this.DateModified = dateModified;
@@ -41,18 +40,18 @@ namespace MediaNews.Entities.Models
 
         [Required]
         [StringLength(255)]
+        [Display(Name = "Заглавие")]
         public string Title { get; set; }
 
         [Required]
         [StringLength(255)]
+        [Display(Name = "Кратко описание")]
         public string Description { get; set; }
 
         [Required]
         [DataType(DataType.MultilineText)]
         [Display(Name = "Описание")]
         public string Content { get; set; }
-
-        public string ExternalUrl { get; set; }
 
         public string ImgUrl { get; set; }
 
@@ -70,7 +69,7 @@ namespace MediaNews.Entities.Models
 
         public DateTime? DateModified { get; set; }
 
-
+        public virtual ICollection<Comments> Comments { get; set;}
 
     }
 }
