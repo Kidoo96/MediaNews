@@ -4,24 +4,21 @@
     ViewBag.Title = Model.Title;
 }
 
-<section class="banner-section">
-    @*@{
-        var base64 = Convert.ToBase64String(Model.imagePath);
-        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-    }*@
-    <img src="@Model.ImgUrl" class="banner-section" />
-</section>
 <section class="post-content-section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 post-title-block">
-
-                <h1 class="text-center">@Html.DisplayFor(model => model.Title)</h1>
-                <ul class="list-inline text-center">
-                    <li>Публикувано на: @Html.DisplayFor(model => model.DatePublished)</li>
-                    <li>в категория: @Html.DisplayFor(model => model.Category.Name) </li>
-                    <li>от: @Html.DisplayFor(model => model.Author.UserName) </li>
-                </ul>
+            <div class="header">
+                @*@{
+                var base64 = Convert.ToBase64String(Model.imagePath);
+                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+            }*@
+                <img src="@Model.ImgUrl" style="width:100%" />
+                <div class="triangulo"></div>
+                <h5 class="sub-title-details">
+                    Публикувано на: @Html.DisplayFor(model => model.DatePublished)
+                    в категория: @Html.DisplayFor(model => model.Category.Name)
+                    от: @Html.DisplayFor(model => model.Author.UserName)</h5>
+                <h2 class="title-details">@Html.DisplayFor(model => model.Title)</h2>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-12 mt-5">
                 @Html.DisplayFor(model => model.Content)

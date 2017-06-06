@@ -53,8 +53,8 @@ namespace MediaNews.Index.Controllers
             {
 
                 Category cat = new Category(
-
-                        category.Name 
+                        category.Name,
+                        category.catColor
                 );
 
                 db.Categories.Add(cat);
@@ -85,7 +85,7 @@ namespace MediaNews.Index.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name")] Category category)
+        public ActionResult Edit([Bind(Include = "Id,Name, catColor")] Category category)
         {
             if (ModelState.IsValid)
             {

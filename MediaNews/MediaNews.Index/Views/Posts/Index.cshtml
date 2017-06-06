@@ -4,8 +4,17 @@
     ViewBag.Title = "Новини";
 }
 
-<h2>Новини</h2>
+<div class="info-section">
+    <span class="glyphicon glyphicon-time"> Дата:<strong>@DateTime.Now.ToString("dd-MMM-yyyy")</strong></span>
 
+    <div class="pull-right">
+        <p>Категория:</p>
+
+    </div>
+</div>
+
+
+<h2>Новини</h2>
 <div class="container">
     <div class="row">
         @foreach (var item in Model)
@@ -13,7 +22,7 @@
             <div class="col-sm-4">
                 <div class="news">
                     <div class="img-figure">
-                        <div class="cat">@Html.DisplayFor(modelItem => item.Category.Name)</div>
+                        <div class="cat" style="background:@item.Category.catColor">@Html.DisplayFor(modelItem => item.Category.Name)</div>
                         @*@{
                             var base64 = Convert.ToBase64String(item.imagePath);
                             var imgSrc = String.Format("data:image/gif;base64,{0}", base64);

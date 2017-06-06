@@ -21,12 +21,14 @@ namespace MediaNews.Index
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/bootstrap-colorpicker.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/style.css"));
+                      "~/Content/style.css",
+                      "~/Content/bootstrap-colorpicker.css"));
         }
     }
 }

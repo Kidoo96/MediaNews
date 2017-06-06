@@ -57,13 +57,13 @@ namespace MediaNews.Index
             //   consumerSecret: "");
 
             //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            //   appId: "114484339147575",
+            //   appSecret: "03582cc0719da455f3c4ae8ae57e0513");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
-            //    ClientId = "",
-            //    ClientSecret = ""
+            //    ClientId = "790539502347-m4re5kkf3i3evvl0omv0qcn6dq5d39lu.apps.googleusercontent.com",
+            //    ClientSecret = "iC28JYjgAf9E5tQe6U-FvYXx"
             //});
         }
     }

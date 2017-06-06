@@ -13,9 +13,10 @@ namespace MediaNews.Entities.Common
         public Category()
         {  }
 
-        public Category(string name, CustomId id = null) : this(id)
+        public Category(string name, string color, CustomId id = null) : this(id)
         {
             this.Name = name;
+            this.catColor = color;
         }
 
         public Category(CustomId id)
@@ -31,6 +32,7 @@ namespace MediaNews.Entities.Common
         [Display(Name = "Категория")]
         public string Name { get; set; }
 
+        [DisplayFormat(NullDisplayText = "#001f3f", ApplyFormatInEditMode = true)]
         [Display(Name = "Цвят на категорията")]
         public string catColor { get; set; }
     }

@@ -22,6 +22,7 @@ namespace MediaNews.Index.Controllers
         // GET: Posts
         public ActionResult Index()
         {
+
             var posts = db.Posts.Include(p => p.Author).Include(p => p.Category);
             var orderPosts = posts.OrderByDescending(p => p.DatePublished);
             return View(orderPosts.ToList());
