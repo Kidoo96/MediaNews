@@ -6839,6 +6839,7 @@ button.close {
     background: #fff;
 	position: relative;
 	overflow: hidden;
+    height: 374px;
 	z-index:1;
  	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
@@ -6925,12 +6926,12 @@ button.close {
 
 p.more {
 	text-align: center;
+    padding-top: 25px;
 }
 
 .more a {
     position: relative;
     font-size: 13px;
-    margin-top: 30px;
     display: block;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
