@@ -103,7 +103,7 @@ namespace MediaNews.Index.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Description,Content,ExternalUrl,ImgUrl,AuthorId,CategoryId,DatePublished,DateModified")] Posts posts)
+        public ActionResult Edit([Bind(Include = "Id,Title,Description,Content,ImgUrl,AuthorId,CategoryId,DatePublished,DateModified")] Posts posts)
         {
             if (ModelState.IsValid)
             {
