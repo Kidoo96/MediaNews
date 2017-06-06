@@ -6845,12 +6845,14 @@ button.close {
 	-ms-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;	
-
+    margin-bottom: 10px;
 	border: 1px solid #eaeaea;
 }
 
 .news .img-figure {
 	position: relative;
+    width: 360px;
+    height: 200px;
 }
 
 .news .img-figure img {

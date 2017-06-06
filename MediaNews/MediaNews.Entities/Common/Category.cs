@@ -30,5 +30,8 @@ namespace MediaNews.Entities.Common
         [StringLength(255)]
         [Display(Name = "Категория")]
         public string Name { get; set; }
+
+        [Display(Name = "Цвят на категорията")]
+        public string catColor { get; set; }
     }
 }

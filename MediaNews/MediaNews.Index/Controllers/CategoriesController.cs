@@ -7,136 +7,117 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MediaNews.DbContext;
-using MediaNews.Entities.Models;
-using Microsoft.AspNet.Identity;
-using MediaNews.Index.DTO;
 using MediaNews.Entities.Common;
 
 namespace MediaNews.Index.Controllers
 {
-
-    public class PostsController : Controller
+    public class CategoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Posts
+        // GET: Categories
         public ActionResult Index()
         {
-            var posts = db.Posts.Include(p => p.Author).Include(p => p.Category);
-            var orderPosts = posts.OrderByDescending(p => p.DatePublished);
-            return View(orderPosts.ToList());
+            return View(db.Categories.ToList());
         }
 
-        // GET: Posts/Details/5
+        // GET: Categories/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Posts posts = db.Posts.Find(id);
-            if (posts == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(posts);
+            return View(category);
         }
 
-        // GET: Posts/Create
+        // GET: Categories/Create
         public ActionResult Create()
         {
-            ViewBag.AuthorId = new SelectList(db.Users, "Id", "Email");
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name");
             return View();
         }
 
-        // POST: Posts/Create
+        // POST: Categories/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PostEntry entry)
+        public ActionResult Create(Category category)
         {
             if (ModelState.IsValid)
             {
 
-                Posts post = new Posts(
+                Category cat = new Category(
 
-                    entry.CategoryId,
-                    User.Identity.GetUserId(),
-                    entry.Title,
-                    entry.Description,
-                    entry.Content,
-                    entry.ImgUrl,
-                    DateTime.Now,
-                    null   
-                     
+                        category.Name 
                 );
 
-                db.Posts.Add(post);
+                db.Categories.Add(cat);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", entry.CategoryId);
-            return View(entry);
+            return View(category);
         }
 
-        // GET: Posts/Edit/5
+        // GET: Categories/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Posts posts = db.Posts.Find(id);
-            if (posts == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.AuthorId = new SelectList(db.Users, "Id", "Email", posts.AuthorId);
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", posts.CategoryId);
-            return View(posts);
+            return View(category);
         }
 
-        // POST: Posts/Edit/5
+        // POST: Categories/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Description,Content,ExternalUrl,ImgUrl,AuthorId,CategoryId,DatePublished,DateModified")] Posts posts)
+        public ActionResult Edit([Bind(Include = "Id,Name")] Category category)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(posts).State = EntityState.Modified;
+                db.Entry(category).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AuthorId = new SelectList(db.Users, "Id", "Email", posts.AuthorId);
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", posts.CategoryId);
-            return View(posts);
+            return View(category);
         }
 
-        // GET: Posts/Delete/5
+        // GET: Categories/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Posts posts = db.Posts.Find(id);
-            if (posts == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(posts);
+            return View(category);
         }
 
-        // POST: Posts/Delete/5
+        // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Posts posts = db.Posts.Find(id);
-            db.Posts.Remove(posts);
+            Category category = db.Categories.Find(id);
+            db.Categories.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
