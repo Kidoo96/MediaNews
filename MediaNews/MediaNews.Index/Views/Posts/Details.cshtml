@@ -24,8 +24,6 @@
                 @Html.DisplayFor(model => model.Content)
             </div>
 
-         @{ Html.RenderPartial("_Comments"); }
-
             @if (Request.IsAuthenticated && User.IsInRole("Администратор"))
             {
                 <div class="col-lg-3  col-md-3 col-sm-12">
@@ -36,6 +34,8 @@
                     </div>
                 </div>
             }
+
+         @{ Html.RenderPartial("_Comments"); }
 
         </div>
 
