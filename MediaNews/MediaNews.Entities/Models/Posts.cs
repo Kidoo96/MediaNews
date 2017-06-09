@@ -69,7 +69,5 @@ namespace MediaNews.Entities.Models
 
         public DateTime? DateModified { get; set; }
 
-        public virtual ICollection<Comments> Comments { get; set;}
-
     }
 }

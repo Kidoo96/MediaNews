@@ -1,17 +1,17 @@
 ﻿@model MediaNews.Entities.Common.Category
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Създаване";
 }
 
-<h2>Create</h2>
+<h2>Създаване на</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Category</h4>
+        <h4>Категория</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -39,5 +39,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("<-- Назад", "Index")
 </div>
