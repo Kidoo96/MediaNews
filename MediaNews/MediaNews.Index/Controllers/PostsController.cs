@@ -14,11 +14,12 @@ using MediaNews.Entities.Common;
 
 namespace MediaNews.Index.Controllers
 {
-
+    [Authorize(Roles = "Администратор")]
     public class PostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        [AllowAnonymous]
         // GET: Posts
         public ActionResult Index()
         {
@@ -28,6 +29,7 @@ namespace MediaNews.Index.Controllers
             return View(orderPosts.ToList());
         }
 
+        [AllowAnonymous]
         // GET: Posts/Details/5
         public ActionResult Details(string id)
         {

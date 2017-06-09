@@ -11,6 +11,7 @@ using MediaNews.Entities.Common;
 
 namespace MediaNews.Index.Controllers
 {
+    [Authorize(Roles = "Администратор")]
     public class CategoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
